@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--by Rampage and RedStonePowerCrafter-->
+<html lang="de" dir="ltr">
+	<head>
+			<!--Anpassung der Breite für Mobil-Geräte-->
+			<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+			<meta charset="utf-8">
+			<meta name="theme-color" content="#697278">
+			<title>
+				DEEZL - Album
+			</title>
+			<link href="main.css" rel="stylesheet" type="text/css">
+			<link rel="icon" type="image/x-icon" href="icon.png">
+	</head>
+
+	<body>
+		<header>
+			<h1>
+				Album
+			</h1>
+		</header>
+		<div id="navi-main">
+			<ul>
+				<li>
+					<a href="track.html">
+						Tracks
+					</a>
+				</li>
+				<div id="here">
+					<li>
+						<a href="album.html">
+							Album
+						</a>
+					</li>
+				</div>
+				<li>
+					<a href="artist.html">
+						Artist
+					</a>
+				</li>
+				<li>
+					<a href="charts.html">
+						Charts
+					</a>
+				</li>
+			</ul>
+		</div>
+	<!--Nav-Bar für Mobil-Geräte-->
+		<div id="navi-mobile">
+			<nav>
+				<a href="#" id="menu-icon">
+				</a>
+				<ul>
+					<li>
+						<a href="track.html">
+							Tracks
+						</a>
+					</li>
+					<li>
+						<div id="current">
+							<a href="album.html">
+								Album
+							</a>
+						</div>
+					</li>
+					<li>
+						<a href="artist.html">
+							Artist
+						</a>
+					</li>
+					<li>
+					<a href="charts.html">
+						Charts
+					</a>
+				</li>
+				</ul>
+				</nav>
+		</div>
+		<div class="Content2">
+			Search Album: 
+			<input id="search" >
+				<div class="container"></div>
+				<script type="text/javascript">
+					document.querySelector('#search').addEventListener('keydown', function(event){
+						if (event.keyCode == 13) {		/*Wait for Enter Key*/
+							search(this.value);
+						}
+					});
+
+					function search(value){
+						var params = "query=album?q="+value;
+						var xhttp = new XMLHttpRequest();
+						xhttp.onload = function() {
+							if (this.status == 200) {
+								document.querySelector('.container').innerHTML="";
+								var response = JSON.parse(xhttp.responseText);
+								for (var i = 0; i < response.length; i++) {
+									var p = document.createElement('p');
+									p.innerHTML = response[i].title +"&nbsp; &nbsp;" + response[i].name;
+									p.setAttribute("link",response[i].url.replace("\\", ''));
+									p.addEventListener('click', function(){
+										send(this.getAttribute("link"));
+									});
+									document.querySelector('.container').appendChild(p);
+								}
+							}
+						};
+					  xhttp.open("POST", "API/trackquery.php", true);
+					  xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+					  xhttp.send(params);
+					}
+
+					function send(link){
+						var xhttp = new XMLHttpRequest();
+						var params = "url="+link;
+						xhttp.onload = function() {
+						  if (this.status == 200) {
+							document.querySelector('.container').innerHTML= xhttp.responseText;
+						  }
+						};
+						xhttp.open("POST", "sml.php", true);
+						xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+						xhttp.send(params);
+					  }
+			</script>
+		</div>
+	</body>
+</html>

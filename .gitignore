@@ -1,0 +1,22 @@
+# https://git-scm.com/docs/gitignore
+# https://help.github.com/articles/ignoring-files
+# Example.gitignore files : https://github.com/github/gitignore
+_notes/
+/bower_components/
+/node_modules/
+/SMLoadrConfig.json
+/SMLoadr.log
+/plexre.html
+/downloadLinks.txt
+/downloadedWithWarning.txt
+/downloadedUnsuccessfully.txt
+/downloadedSuccessfully.txt
+/.htpasswd
+/.htaccess
+/SMLOADR/SMLoadrConfig.json
+/SMLOADR/SMLoadr.log
+/SMLOADR/SMLoadr-linux-x64
+/SMLOADR/downloadLinks.txt
+/SMLOADR/downloadedUnsuccessfully.txt
+/SMLOADR/downloadedSuccessfully.txt
+/SMLOADR/PLAYLISTS/
