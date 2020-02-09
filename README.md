@@ -9,6 +9,8 @@ WebUI for the SMLoadr-CLI tool.
 
 GNU screen required
 
+##Setup
+
 clone to your Webserver
 
 Setup paths in SMLOADR/exec.sh
