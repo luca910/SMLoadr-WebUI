@@ -1,5 +1,10 @@
 # SMLoadr-WebUI
 
+This tool allows you to search artists, albums, tracks & playlists... and sends to **SMLoadr** with a command line.  
+
+**NOTE:
+This software does not download music. The main function is search artists/albums/tracks/playlists and send to SMLoadr!**  
+
 WebUI for the SMLoadr-CLI tool.
 
 GNU screen required
