@@ -9,7 +9,7 @@ WebUI for the SMLoadr-CLI tool.
 
 GNU screen required
 
-##Setup
+## Setup
 
 clone to your Webserver
 
